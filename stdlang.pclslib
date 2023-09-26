@@ -1,0 +1,37 @@
+
+# precompiled lib
+# code directly wrote in asm to add new features to the language
+# added basic operators
+# thoses aren't functions and are directly pasted to the code
+# with a and b replaced
+int operator +(int a, int b):
+  mov eax, a
+  mov edx, b
+  add eax, edx
+end
+
+int operator -(int a, int b):
+  mov eax, a
+  sub eax, b
+end
+
+int operator *(int a, int b):
+  mov eax, a
+  imul eax, b
+end
+
+#operators can be anything
+#string operator azerty(string a):
+#   mov [a], "azerty",0
+
+#%f to ask the compiler for a new floating point register
+#%r for 64bits registers
+#%e for 32bits registes
+#%x for 16bits registers
+#%l for 8bits  registers
+
+#%{number from 0} to get the given register
+float child to_float(int a):
+   pxor %f, %0
+   cvtsi2ss %0, a
+end
