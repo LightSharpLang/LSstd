@@ -1,0 +1,67 @@
+nowarn
+
+"precompiled lib
+ code directly wrote in asm to add new features to the language
+ added basic operators
+ thoses aren't functions and are directly pasted to the code
+ with a and b replaced
+
+ the nowarn instruction at the very top of the file
+ tells the compiler to ignore warnings
+"
+
+ptr operator <-(any a, any b):
+  lea eax, b
+  mov qword a, eax
+end
+
+ptr operator ->(any a, any b):
+  mov eax, a
+  mov qword [eax], b
+end
+
+int operator +(int a, int b):
+  mov eax, a
+  mov edx, b
+  add eax, edx
+end
+
+int operator -(int a, int b):
+  mov eax, a
+  sub eax, b
+end
+
+int operator *(int a, int b):
+  mov eax, a
+  imul eax, b
+end
+
+int operator /(int a, int b):
+  mov eax, a
+  cqo
+  idiv qword b
+end
+
+float operator +(float a, float b):
+  fld qword a
+  fadd qword b
+  fstp qwond a
+end
+
+float operator -(float a, float b):
+  fld qword a
+  fsub qword b
+  fstp qwond a
+end
+
+float operator *(float a, float b):
+  fld qword a
+  fmul qword b
+  fstp qwond a
+end
+
+float operator /(float a, float b):
+  fld qword a
+  fdiv qword b
+  fstp qwond a
+end
