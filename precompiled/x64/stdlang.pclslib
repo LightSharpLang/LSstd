@@ -11,8 +11,8 @@ nowarn
 "
 
 ptr operator <-(any a, any b):
-  lea %r, b
-  mov qword a, %r0
+  lea rax, b
+  mov qword a, rax
 end
 
 ptr operator ->(any a, any b):
@@ -44,25 +44,33 @@ end
 
 float operator +(float a, float b):
   movsd xmm1, qword a
-  movsd xmm0, qword b
+  movsd xmm0, b
   addsd xmm0, xmm1
-  movsd rax, xmm0
+  movq rax, xmm0
+  movq rcx, xmm0
+  mov rax, rcx
 end
 
 float operator -(float a, float b):
-  movsd xmm0, qword b
-  subsd xmm0, qword b
-  movsd rax, xmm0
+  movsd xmm0, qword a
+  subsd xmm0, b
+  movq rax, xmm0
+  movq rcx, xmm0
+  mov rax, rcx
 end
 
 float operator *(float a, float b):
   movsd xmm0, qword a
   mulsd xmm0, qword b
-  movsd rax, xmm0
+  movq rax, xmm0
+  movq rcx, xmm0
+  mov rax, rcx
 end
 
 float operator /(float a, float b):
   movsd xmm0, qword a
   divsd xmm0, qword b
-  movsd rax, xmm0
+  movq rax, xmm0
+  movq rcx, xmm0
+  mov rax, rcx
 end
