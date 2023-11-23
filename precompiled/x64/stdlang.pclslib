@@ -61,7 +61,7 @@ float operator *(float a, float b):
   movsd rax, xmm0
 end
 
-float operator *(float a, float b):
+float operator /(float a, float b):
   movsd xmm0, qword a
   divsd xmm0, qword b
   movsd rax, xmm0
