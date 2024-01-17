@@ -1,0 +1,18 @@
+extern printint()
+extern printptr()
+extern printstr()
+extern printfloat()
+
+def mold print(any a):
+  $int = a is int
+  $ptr = a is ptr
+  $str = a is str
+  $float = a is float
+  $any = a is any
+
+  $int$ printint(a)
+  $ptr$ printptr(a)
+  $str$ printstr(a)
+  $float$ printfloat(a)
+  $any$ printptr(a)
+end
